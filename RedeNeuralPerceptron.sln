@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptron", "RedeNeuralPerceptron\RedeNeuralPerceptron.csproj", "{40A44A38-3070-4CDA-BACB-8C5155C24AAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronDomain", "RedeNeuralPerceptronDomain\RedeNeuralPerceptronDomain.csproj", "{7BCC6C69-9B0E-4188-BED5-4DD871580B16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronInfra", "RedeNeuralPerceptronInfra\RedeNeuralPerceptronInfra.csproj", "{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronApp", "RedeNeuralPerceptronApp\RedeNeuralPerceptronApp.csproj", "{B635A950-0933-4AB7-9039-D7CC16739875}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40A44A38-3070-4CDA-BACB-8C5155C24AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A44A38-3070-4CDA-BACB-8C5155C24AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A44A38-3070-4CDA-BACB-8C5155C24AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A44A38-3070-4CDA-BACB-8C5155C24AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BCC6C69-9B0E-4188-BED5-4DD871580B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BCC6C69-9B0E-4188-BED5-4DD871580B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BCC6C69-9B0E-4188-BED5-4DD871580B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BCC6C69-9B0E-4188-BED5-4DD871580B16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B635A950-0933-4AB7-9039-D7CC16739875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B635A950-0933-4AB7-9039-D7CC16739875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B635A950-0933-4AB7-9039-D7CC16739875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B635A950-0933-4AB7-9039-D7CC16739875}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35756BC7-B21C-468A-A25E-E126629F4517}
+	EndGlobalSection
+EndGlobal
