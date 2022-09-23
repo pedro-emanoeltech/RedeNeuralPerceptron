@@ -1,4 +1,6 @@
-﻿using RedeNeuralPerceptronDomain.Entity;
+﻿
+using RedeNeuralPerceptronDomain.Entity;
+using RedeNeuralPerceptronDomain.Services;
 using System;
 using System.Windows.Forms;
 
@@ -18,18 +20,19 @@ namespace RedeNeuralPerceptron
         }
 
         private void btnBuscarArquivo_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog caminhoArquivo = new OpenFileDialog
+        {            
+            ProcessarArquivoServices processarArquivoServices = new ProcessarArquivoServices();
+            var arquivoDados = processarArquivoServices.BuscarArquivo();
+            if (!String.IsNullOrEmpty(arquivoDados.Caminho))
             {
-                Title = "Procurar Arquivos de Texto",
-                Filter = "arquivos txt (*.txt)|*.txt",
-                CheckFileExists = true,
-                CheckPathExists = true
-            };
-            caminhoArquivo.ShowDialog();
-            CaminhoArquivoTextBox.Text = caminhoArquivo.FileName;
-            ArquivoDados arquivoDados = new ArquivoDados();
-            arquivoDados.Endereco = caminhoArquivo.FileName;
+                CaminhoArquivoTextBox.Text = arquivoDados.Caminho.ToString();
+                DGDados.DataSource = processarArquivoServices.CarregarArquivo(arquivoDados);
+
+
+            }
+         
+
+
         }
     }
 }

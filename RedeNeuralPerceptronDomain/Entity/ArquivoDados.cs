@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace RedeNeuralPerceptronDomain.Entity
 {
-    public class ArquivoDados :Base
+    public class ArquivoDados : Base
     {
-        public  string Endereco { set; get; }
+        public string Nome { set; get; }
+        public string Caminho{ set; get; }
+        public string Tipo { set; get; }
     }
 }
  
