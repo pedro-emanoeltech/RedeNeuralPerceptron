@@ -80,5 +80,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\RedeNeuralPerceptronDomain.csproj">
+      <Project>{76c5402d-2744-4a9a-9200-f5a3d2923356}</Project>
+      <Name>RedeNeuralPerceptronDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary2\RedeNeuralPerceptronApp.csproj">
+      <Project>{a835b143-9edc-4c54-a52b-d1464096065e}</Project>
+      <Name>RedeNeuralPerceptronApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RedeNeuralPerceptronInfras\RedeNeuralPerceptronInfras.csproj">
+      <Project>{733bf153-cf7e-4694-95e5-71106bb18c89}</Project>
+      <Name>RedeNeuralPerceptronInfras</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

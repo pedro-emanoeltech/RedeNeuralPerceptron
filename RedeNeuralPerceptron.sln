@@ -5,11 +5,11 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptron", "RedeNeuralPerceptron\RedeNeuralPerceptron.csproj", "{40A44A38-3070-4CDA-BACB-8C5155C24AAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronDomain", "RedeNeuralPerceptronDomain\RedeNeuralPerceptronDomain.csproj", "{7BCC6C69-9B0E-4188-BED5-4DD871580B16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronDomain", "RedeNeuralPerceptronDomain\RedeNeuralPerceptronDomain.csproj", "{76C5402D-2744-4A9A-9200-F5A3D2923356}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronInfra", "RedeNeuralPerceptronInfra\RedeNeuralPerceptronInfra.csproj", "{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronApp", "RedeNeuralPerceptronApp\RedeNeuralPerceptronApp.csproj", "{A835B143-9EDC-4C54-A52B-D1464096065E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronApp", "RedeNeuralPerceptronApp\RedeNeuralPerceptronApp.csproj", "{B635A950-0933-4AB7-9039-D7CC16739875}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronInfras", "RedeNeuralPerceptronInfra\RedeNeuralPerceptronInfras.csproj", "{733BF153-CF7E-4694-95E5-71106BB18C89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +21,18 @@ Global
 		{40A44A38-3070-4CDA-BACB-8C5155C24AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40A44A38-3070-4CDA-BACB-8C5155C24AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40A44A38-3070-4CDA-BACB-8C5155C24AAA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BCC6C69-9B0E-4188-BED5-4DD871580B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BCC6C69-9B0E-4188-BED5-4DD871580B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BCC6C69-9B0E-4188-BED5-4DD871580B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BCC6C69-9B0E-4188-BED5-4DD871580B16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7880BE5C-6C3E-43A4-A3EA-54BB19A7F337}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B635A950-0933-4AB7-9039-D7CC16739875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B635A950-0933-4AB7-9039-D7CC16739875}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B635A950-0933-4AB7-9039-D7CC16739875}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B635A950-0933-4AB7-9039-D7CC16739875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76C5402D-2744-4A9A-9200-F5A3D2923356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76C5402D-2744-4A9A-9200-F5A3D2923356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76C5402D-2744-4A9A-9200-F5A3D2923356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76C5402D-2744-4A9A-9200-F5A3D2923356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A835B143-9EDC-4C54-A52B-D1464096065E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A835B143-9EDC-4C54-A52B-D1464096065E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A835B143-9EDC-4C54-A52B-D1464096065E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A835B143-9EDC-4C54-A52B-D1464096065E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{733BF153-CF7E-4694-95E5-71106BB18C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{733BF153-CF7E-4694-95E5-71106BB18C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{733BF153-CF7E-4694-95E5-71106BB18C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{733BF153-CF7E-4694-95E5-71106BB18C89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
