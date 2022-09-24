@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ProcessaarProgressBar = new System.Windows.Forms.ProgressBar();
             this.CaminhoArquivoTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,9 +72,16 @@
             // 
             // DGDados
             // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.DGDados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGDados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.DGDados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DGDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDados.Location = new System.Drawing.Point(12, 83);
+            this.DGDados.MultiSelect = false;
             this.DGDados.Name = "DGDados";
+            this.DGDados.ReadOnly = true;
             this.DGDados.Size = new System.Drawing.Size(533, 232);
             this.DGDados.TabIndex = 3;
             this.DGDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

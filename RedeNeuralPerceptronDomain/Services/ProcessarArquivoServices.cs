@@ -40,21 +40,31 @@ namespace RedeNeuralPerceptronDomain.Services
         }
         public DataTable CarregarArquivo(ArquivoDados arquivoDados)
         {
-            var caminhoCompleto = "@"+arquivoDados.Caminho;
-            var selectPlanilha = "SELECT *FROM [DADOS$]";
-            var conexao = "Provider=Microsoft.ACE.OLEDB.12.0;Data source=" + caminhoCompleto +
-                ";Extended Properties=\"Excel 12.0;HDR = yes;IMEX=0\"";
-
-            var dadosExcel = new DataTable();
-
-            using (OleDbConnection Con =new OleDbConnection(conexao))
+            try
             {
-                using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter(selectPlanilha, Con))
-                {
-                    dataAdapter.Fill(dadosExcel);
-                }
+                OleDbConnection Con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data source='" + arquivoDados.Caminho +
+                    "'; Extended Properties = 'Excel 12.0 Xml;HDR = yes'");
+
+                Con.Open();
+                DataTable table = Con.GetOleDbSchemaTable(
+                    OleDbSchemaGuid.Tables, null
+                    );
+                Con.Close();
+
+                var selectPlanilha = "SELECT *FROM [" + table.Rows[0]["Table_Name"] + "]";
+                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(selectPlanilha, Con);
+
+
+                DataTable tabelaDados = new DataTable();
+                dataAdapter.Fill(tabelaDados);
+
+                return tabelaDados;
+
             }
-                return dadosExcel;
+            catch (Exception e) 
+            {
+                throw new InvalidOperationException("Falha ao carregar arquivo"+e.Message);
+            }
         }
     }
 }
