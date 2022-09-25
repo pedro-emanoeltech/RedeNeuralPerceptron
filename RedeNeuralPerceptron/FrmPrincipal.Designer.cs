@@ -29,16 +29,24 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ProcessaarProgressBar = new System.Windows.Forms.ProgressBar();
             this.CaminhoArquivoTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
-            this.DGDados = new System.Windows.Forms.DataGridView();
+            this.DadosGridView = new System.Windows.Forms.DataGridView();
             this.btnBuscarArquivo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.BiasTextBox = new System.Windows.Forms.TextBox();
             this.btnProcessa = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDados)).BeginInit();
+            this.ResultadoCalculolistView = new System.Windows.Forms.ListView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.PesosGridView = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DadosGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PesosGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // ProcessaarProgressBar
@@ -70,21 +78,27 @@
             this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
-            // DGDados
+            // DadosGridView
             // 
+            this.DadosGridView.AllowUserToAddRows = false;
+            this.DadosGridView.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Format = "N2";
             dataGridViewCellStyle1.NullValue = null;
-            this.DGDados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DGDados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.DGDados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DGDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGDados.Location = new System.Drawing.Point(12, 83);
-            this.DGDados.MultiSelect = false;
-            this.DGDados.Name = "DGDados";
-            this.DGDados.ReadOnly = true;
-            this.DGDados.Size = new System.Drawing.Size(533, 232);
-            this.DGDados.TabIndex = 3;
-            this.DGDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DadosGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DadosGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.DadosGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DadosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DadosGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.DadosGridView.Location = new System.Drawing.Point(15, 69);
+            this.DadosGridView.MultiSelect = false;
+            this.DadosGridView.Name = "DadosGridView";
+            this.DadosGridView.ReadOnly = true;
+            dataGridViewCellStyle2.NullValue = null;
+            this.DadosGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.DadosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DadosGridView.Size = new System.Drawing.Size(412, 116);
+            this.DadosGridView.TabIndex = 3;
+            this.DadosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnBuscarArquivo
             // 
@@ -101,9 +115,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(311, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(177, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Bias( 0 a 1 )";
+            this.label2.Text = "Bias/Taxa de Aprendizagem( 0 a 1 )";
             // 
             // BiasTextBox
             // 
@@ -121,22 +135,76 @@
             this.btnProcessa.Text = "Processar";
             this.btnProcessa.UseVisualStyleBackColor = true;
             // 
+            // ResultadoCalculolistView
+            // 
+            this.ResultadoCalculolistView.HideSelection = false;
+            this.ResultadoCalculolistView.Location = new System.Drawing.Point(444, 69);
+            this.ResultadoCalculolistView.Name = "ResultadoCalculolistView";
+            this.ResultadoCalculolistView.Size = new System.Drawing.Size(121, 232);
+            this.ResultadoCalculolistView.TabIndex = 10;
+            this.ResultadoCalculolistView.UseCompatibleStateImageBehavior = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(441, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Calculos.";
+            // 
+            // PesosGridView
+            // 
+            this.PesosGridView.AllowUserToAddRows = false;
+            this.PesosGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.PesosGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.PesosGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.PesosGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PesosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PesosGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.PesosGridView.Location = new System.Drawing.Point(15, 208);
+            this.PesosGridView.MultiSelect = false;
+            this.PesosGridView.Name = "PesosGridView";
+            this.PesosGridView.ReadOnly = true;
+            dataGridViewCellStyle4.NullValue = null;
+            this.PesosGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.PesosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.PesosGridView.Size = new System.Drawing.Size(412, 43);
+            this.PesosGridView.TabIndex = 12;
+            //this.PesosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler();
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 192);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Defina o Peso Por Entrada.";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 389);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.PesosGridView);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ResultadoCalculolistView);
             this.Controls.Add(this.btnProcessa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BiasTextBox);
             this.Controls.Add(this.btnBuscarArquivo);
-            this.Controls.Add(this.DGDados);
+            this.Controls.Add(this.DadosGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CaminhoArquivoTextBox);
             this.Controls.Add(this.ProcessaarProgressBar);
             this.Name = "FrmPrincipal";
             this.Text = "Rede Neural Perceptron";
-            ((System.ComponentModel.ISupportInitialize)(this.DGDados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DadosGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PesosGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,11 +216,15 @@
         private System.Windows.Forms.TextBox CaminhoArquivoTextBox;
         private System.Windows.Forms.Label label1;
         private System.DirectoryServices.DirectorySearcher directorySearcher1;
-        private System.Windows.Forms.DataGridView DGDados;
+        private System.Windows.Forms.DataGridView DadosGridView;
         private System.Windows.Forms.Button btnBuscarArquivo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox BiasTextBox;
         private System.Windows.Forms.Button btnProcessa;
+        private System.Windows.Forms.ListView ResultadoCalculolistView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView PesosGridView;
+        private System.Windows.Forms.Label label4;
     }
 }
 

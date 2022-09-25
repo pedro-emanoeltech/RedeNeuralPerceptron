@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.OleDb;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using RedeNeuralPerceptronDomain.Entity;
-using System.Collections;
 using System.IO;
-using static RedeNeuralPerceptronDomain.Commons.Enums;
+using RedeNeuralPerceptronDomain.Interfaces.Services;
 using System.Data;
+using RedeNeuralPerceptronDomain.Interfaces.Repository;
 
 namespace RedeNeuralPerceptronDomain.Services
 {
-    public class ProcessarArquivoServices
+    public class ProcessarArquivoServices : IProcessarArquivoServices
     {
+        private readonly IArquivoDadosRepository _repository;
+        public ProcessarArquivoServices(IArquivoDadosRepository repository)
+        {
+            _repository = repository;
+        }
         public ArquivoDados BuscarArquivo()
         {
             ArquivoDados arquivoDados = new ArquivoDados();
@@ -38,33 +37,10 @@ namespace RedeNeuralPerceptronDomain.Services
             }
             return arquivoDados;
         }
+
         public DataTable CarregarArquivo(ArquivoDados arquivoDados)
         {
-            try
-            {
-                OleDbConnection Con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data source='" + arquivoDados.Caminho +
-                    "'; Extended Properties = 'Excel 12.0 Xml;HDR = yes'");
-
-                Con.Open();
-                DataTable table = Con.GetOleDbSchemaTable(
-                    OleDbSchemaGuid.Tables, null
-                    );
-                Con.Close();
-
-                var selectPlanilha = "SELECT *FROM [" + table.Rows[0]["Table_Name"] + "]";
-                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(selectPlanilha, Con);
-
-
-                DataTable tabelaDados = new DataTable();
-                dataAdapter.Fill(tabelaDados);
-
-                return tabelaDados;
-
-            }
-            catch (Exception e) 
-            {
-                throw new InvalidOperationException("Falha ao carregar arquivo"+e.Message);
-            }
+            return _repository.CarregarArquivo(arquivoDados);
         }
     }
 }

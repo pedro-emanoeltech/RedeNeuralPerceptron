@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptron", "Red
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronDomain", "RedeNeuralPerceptronDomain\RedeNeuralPerceptronDomain.csproj", "{76C5402D-2744-4A9A-9200-F5A3D2923356}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronApp", "RedeNeuralPerceptronApp\RedeNeuralPerceptronApp.csproj", "{A835B143-9EDC-4C54-A52B-D1464096065E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeNeuralPerceptronInfras", "RedeNeuralPerceptronInfra\RedeNeuralPerceptronInfras.csproj", "{733BF153-CF7E-4694-95E5-71106BB18C89}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{76C5402D-2744-4A9A-9200-F5A3D2923356}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76C5402D-2744-4A9A-9200-F5A3D2923356}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76C5402D-2744-4A9A-9200-F5A3D2923356}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A835B143-9EDC-4C54-A52B-D1464096065E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A835B143-9EDC-4C54-A52B-D1464096065E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A835B143-9EDC-4C54-A52B-D1464096065E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A835B143-9EDC-4C54-A52B-D1464096065E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{733BF153-CF7E-4694-95E5-71106BB18C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{733BF153-CF7E-4694-95E5-71106BB18C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{733BF153-CF7E-4694-95E5-71106BB18C89}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,5 +1,4 @@
-﻿
-using RedeNeuralPerceptronDomain.Entity;
+﻿using RedeNeuralPerceptronDomain.Interfaces.Services;
 using RedeNeuralPerceptronDomain.Services;
 using System;
 using System.Windows.Forms;
@@ -9,10 +8,16 @@ namespace RedeNeuralPerceptron
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
+        private readonly IProcessarArquivoServices _processarArquivoServices;
+        private readonly IProcessarPesosServices _processarPesosServices;
+        public FrmPrincipal(IProcessarArquivoServices processarArquivoServices,IProcessarPesosServices processarPesosServices )
         {
-            InitializeComponent();
+          _processarArquivoServices = processarArquivoServices;
+          _processarPesosServices = processarPesosServices;
+           InitializeComponent();
         }
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -21,18 +26,23 @@ namespace RedeNeuralPerceptron
 
         private void btnBuscarArquivo_Click(object sender, EventArgs e)
         {            
-            ProcessarArquivoServices processarArquivoServices = new ProcessarArquivoServices();
-            var arquivoDados = processarArquivoServices.BuscarArquivo();
+            
+            var arquivoDados = _processarArquivoServices.BuscarArquivo();
             if (!String.IsNullOrEmpty(arquivoDados.Caminho))
             {
                 CaminhoArquivoTextBox.Text = arquivoDados.Caminho.ToString();
-                DGDados.DataSource = processarArquivoServices.CarregarArquivo(arquivoDados);
+                var dadosEntrada = _processarArquivoServices.CarregarArquivo(arquivoDados);
 
 
+                if (dadosEntrada != null)
+                DadosGridView.DataSource = dadosEntrada;
+                PesosGridView.DataSource = _processarPesosServices.GerarGridValores(dadosEntrada);
             }
-         
 
+           
 
         }
+
+        
     }
 }
