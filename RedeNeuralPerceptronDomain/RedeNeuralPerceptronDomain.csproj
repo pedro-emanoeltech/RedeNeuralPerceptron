@@ -59,9 +59,11 @@
     <Compile Include="Entity\Classe.cs" />
     <Compile Include="Entity\Peso.cs" />
     <Compile Include="Interfaces\Repository\IArquivoDadosRepository.cs" />
+    <Compile Include="Interfaces\Services\IAprendizagemServices.cs" />
     <Compile Include="Interfaces\Services\IProcessarArquivoServices.cs" />
     <Compile Include="Interfaces\Services\IProcessarPesosServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AprendizagemServices.cs" />
     <Compile Include="Services\ProcessarArquivoServices.cs" />
     <Compile Include="Services\ProcessarPesosServices.cs" />
   </ItemGroup>

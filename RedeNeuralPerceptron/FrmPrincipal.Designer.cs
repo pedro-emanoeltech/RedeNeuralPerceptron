@@ -51,7 +51,7 @@
             // 
             // ProcessaarProgressBar
             // 
-            this.ProcessaarProgressBar.Location = new System.Drawing.Point(12, 334);
+            this.ProcessaarProgressBar.Location = new System.Drawing.Point(15, 375);
             this.ProcessaarProgressBar.Name = "ProcessaarProgressBar";
             this.ProcessaarProgressBar.Size = new System.Drawing.Size(415, 23);
             this.ProcessaarProgressBar.TabIndex = 0;
@@ -96,7 +96,7 @@
             dataGridViewCellStyle2.NullValue = null;
             this.DadosGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DadosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DadosGridView.Size = new System.Drawing.Size(412, 116);
+            this.DadosGridView.Size = new System.Drawing.Size(533, 116);
             this.DadosGridView.TabIndex = 3;
             this.DadosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -128,7 +128,7 @@
             // 
             // btnProcessa
             // 
-            this.btnProcessa.Location = new System.Drawing.Point(444, 321);
+            this.btnProcessa.Location = new System.Drawing.Point(447, 362);
             this.btnProcessa.Name = "btnProcessa";
             this.btnProcessa.Size = new System.Drawing.Size(101, 45);
             this.btnProcessa.TabIndex = 9;
@@ -138,7 +138,7 @@
             // ResultadoCalculolistView
             // 
             this.ResultadoCalculolistView.HideSelection = false;
-            this.ResultadoCalculolistView.Location = new System.Drawing.Point(444, 69);
+            this.ResultadoCalculolistView.Location = new System.Drawing.Point(571, 66);
             this.ResultadoCalculolistView.Name = "ResultadoCalculolistView";
             this.ResultadoCalculolistView.Size = new System.Drawing.Size(121, 232);
             this.ResultadoCalculolistView.TabIndex = 10;
@@ -147,7 +147,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(441, 53);
+            this.label3.Location = new System.Drawing.Point(568, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 11;
@@ -164,16 +164,15 @@
             this.PesosGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PesosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PesosGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.PesosGridView.Location = new System.Drawing.Point(15, 208);
+            this.PesosGridView.Location = new System.Drawing.Point(18, 208);
             this.PesosGridView.MultiSelect = false;
             this.PesosGridView.Name = "PesosGridView";
             this.PesosGridView.ReadOnly = true;
             dataGridViewCellStyle4.NullValue = null;
             this.PesosGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.PesosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PesosGridView.Size = new System.Drawing.Size(412, 43);
+            this.PesosGridView.Size = new System.Drawing.Size(530, 93);
             this.PesosGridView.TabIndex = 12;
-            //this.PesosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler();
             // 
             // label4
             // 
@@ -188,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 389);
+            this.ClientSize = new System.Drawing.Size(717, 447);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.PesosGridView);
             this.Controls.Add(this.label3);
@@ -203,6 +202,7 @@
             this.Controls.Add(this.ProcessaarProgressBar);
             this.Name = "FrmPrincipal";
             this.Text = "Rede Neural Perceptron";
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DadosGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PesosGridView)).EndInit();
             this.ResumeLayout(false);

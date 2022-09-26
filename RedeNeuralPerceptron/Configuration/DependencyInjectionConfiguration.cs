@@ -22,6 +22,7 @@ namespace RedeNeuralPerceptron.Configuration
                 services.AddScoped<IArquivoDadosRepository, ArquivoDadosRepository>();
                 services.AddScoped<IProcessarArquivoServices, ProcessarArquivoServices>();
                 services.AddScoped<IProcessarPesosServices, ProcessarPesosServices>();
+                services.AddScoped<IAprendizagemServices, AprendizagemServices>();
             });
 
 
