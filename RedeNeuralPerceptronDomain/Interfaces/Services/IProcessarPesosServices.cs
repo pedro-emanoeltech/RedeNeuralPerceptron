@@ -10,6 +10,6 @@ namespace RedeNeuralPerceptronDomain.Interfaces.Services
     public interface IProcessarPesosServices
     {
         DataTable GerarGridValoresPesosInicias(DataTable dadosGridPrincipal);
-        DataTable GerarPesos(DataTable dadosGridPrincipal, DataTable dadosGridPesos, int taxaAprendizagem, int result);
+        DataRow GerarPesos(DataRow LinhadadosGridPrincipal, DataRow linhadadosGridPesos, double taxaAprendizagem);
     }
 }

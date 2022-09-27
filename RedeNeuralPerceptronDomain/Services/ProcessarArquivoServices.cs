@@ -35,6 +35,7 @@ namespace RedeNeuralPerceptronDomain.Services
 
                 return arquivoDados;
             }
+
             return arquivoDados;
         }
 

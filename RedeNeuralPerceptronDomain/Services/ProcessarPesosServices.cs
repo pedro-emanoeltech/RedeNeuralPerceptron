@@ -10,21 +10,25 @@ namespace RedeNeuralPerceptronDomain.Services
 {
     public class ProcessarPesosServices : IProcessarPesosServices
     {
-        public DataTable GerarPesos(DataTable dadosGridPrincipal, DataTable dadosGridPesos,int taxaAprendizagem,int result)
+        public DataRow GerarPesos(DataRow LinhadadosGridPrincipal, DataRow linhadadosGridPesos,double taxaAprendizagem)
         {
-            if (dadosGridPrincipal.Rows.Count > 0 && dadosGridPesos.Rows.Count > 0)
+            //formula Wi(peso novo)=Wi(peso Antigo)+n(taxa de aprendizagem)*(Saida - resultado)*Xi(entrada antigo)
+            DataTable dataTable = new DataTable();
+            DataRow novoPeso = dataTable.NewRow();
+            if (LinhadadosGridPrincipal.Table.Rows.Count > 0 && linhadadosGridPesos.Table.Rows.Count > 0)
             {
-                for (int i = 1; i < dadosGridPrincipal.Columns.Count; i++)
+                for (int i = 0; i < linhadadosGridPesos.Table.Columns.Count; i++)
                 {
-                    for (int j = 1; i < dadosGridPesos.Columns.Count; i++)
-                    {
-                        DataTable novoPeso = new DataTable();
-                        var valor = Convert.ToInt64 (dadosGridPesos.Rows[i][j]) + taxaAprendizagem * Convert.ToInt64(dadosGridPrincipal.Rows[i][j]);
-                    }
+                    dataTable.Columns.Add("Peso" + i, typeof(Int64));
+                    novoPeso[i] = Convert.ToDouble(linhadadosGridPesos[i].ToString()) + taxaAprendizagem
+                    *(Convert.ToDouble(LinhadadosGridPrincipal["Saida-Result"].ToString()))
+                    * (Convert.ToDouble(LinhadadosGridPrincipal[i].ToString()));
+                   
                 }
-                
+                dataTable.Rows.Add(novoPeso);
             }
-           return dadosGridPrincipal;
+                   
+           return novoPeso;
         }
 
         public DataTable GerarGridValoresPesosInicias(DataTable dadosGridPrincipal)
@@ -34,13 +38,13 @@ namespace RedeNeuralPerceptronDomain.Services
             if (dadosGridPrincipal.Columns.Count > 0)
             {
                 DataRow linha = dataTablePesos.NewRow();
-                for (int i = 0; i < dadosGridPrincipal.Columns.Count-1; i++)
+                for (int i = 0; i < dadosGridPrincipal.Columns.Count-4; i++)
                 {
                     dataTablePesos.Columns.Add("Peso" + i, typeof(Int64));
                    
                     linha["Peso" + i] = numeroAleatorio.NextDouble();
                 }
-                dataTablePesos.Columns.Add("∑", typeof(Int64));
+                
                 dataTablePesos.Rows.Add(linha);
             }
             return dataTablePesos;

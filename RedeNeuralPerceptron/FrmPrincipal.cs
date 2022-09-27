@@ -12,6 +12,9 @@ namespace RedeNeuralPerceptron
         private readonly IProcessarArquivoServices _processarArquivoServices;
         private readonly IProcessarPesosServices _processarPesosServices;
         private readonly IAprendizagemServices _aprendizagemServices;
+
+        private DataTable _dadosEntrada =new DataTable();
+        private DataTable _dadosPesos = new DataTable();
         public FrmPrincipal(IProcessarArquivoServices processarArquivoServices, IProcessarPesosServices processarPesosServices, IAprendizagemServices aprendizagemServices)
         {
             _processarArquivoServices = processarArquivoServices;
@@ -34,22 +37,12 @@ namespace RedeNeuralPerceptron
             if (!String.IsNullOrEmpty(arquivoDados.Caminho))
             {
                 CaminhoArquivoTextBox.Text = arquivoDados.Caminho.ToString();
-                var dadosEntrada = _processarArquivoServices.CarregarArquivo(arquivoDados);
-                dadosEntrada.Columns.Add("Resultado", typeof(Int64));
-                dadosEntrada.Columns.Add("SAIDA-RESULTADO", typeof(Int64));
-
-
-                if (dadosEntrada != null)
-                    DadosGridView.DataSource = dadosEntrada;
-                var dadosPesos = _processarPesosServices.GerarGridValoresPesosInicias(dadosEntrada);
-                PesosGridView.DataSource = dadosPesos;
-
-                //DataRow linha = dadosEntrada.row[]
-                for (int i = 0; i < dadosEntrada.Rows.Count; i++)
-                {
-                    DataRow linha = dadosEntrada.Rows[i];
-                    //linha["Resultado"] = _aprendizagemServices.Somatorio(dadosEntrada, dadosPesos, int.Parse(BiasTextBox.Text),i);
-                }
+                 _dadosEntrada = _processarArquivoServices.CarregarArquivo(arquivoDados);
+                
+                if (_dadosEntrada != null)
+                    DadosGridView.DataSource = _dadosEntrada;
+                _dadosPesos = _processarPesosServices.GerarGridValoresPesosInicias(_dadosEntrada);
+                PesosGridView.DataSource = _dadosPesos;
                 
             }
 
@@ -62,6 +55,33 @@ namespace RedeNeuralPerceptron
 
         }
 
+        private void btnProcessa_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+                if (BiasTextBox.Text.Length > 0)
+                {
+                    if (_dadosPesos.Rows.Count > 0 && _dadosEntrada.Rows.Count > 0)
+                    {
+                        _aprendizagemServices.Somatorio(_dadosEntrada, _dadosPesos, Convert.ToDouble(BiasTextBox.Text.ToString()));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione a tabela para processar");
+                    }
 
+                }
+                else
+                {
+                    MessageBox.Show("Preencha o Bias para Começar o Processo !");
+
+                }
+            //}
+            //catch (Exception )
+            //{
+            //    throw new Exception("erro ao processar");
+            //}
+            
+        }
     }
 }

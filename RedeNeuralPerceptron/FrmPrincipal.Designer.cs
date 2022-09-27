@@ -51,7 +51,7 @@
             // 
             // ProcessaarProgressBar
             // 
-            this.ProcessaarProgressBar.Location = new System.Drawing.Point(15, 375);
+            this.ProcessaarProgressBar.Location = new System.Drawing.Point(18, 412);
             this.ProcessaarProgressBar.Name = "ProcessaarProgressBar";
             this.ProcessaarProgressBar.Size = new System.Drawing.Size(415, 23);
             this.ProcessaarProgressBar.TabIndex = 0;
@@ -96,7 +96,7 @@
             dataGridViewCellStyle2.NullValue = null;
             this.DadosGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DadosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DadosGridView.Size = new System.Drawing.Size(533, 116);
+            this.DadosGridView.Size = new System.Drawing.Size(533, 175);
             this.DadosGridView.TabIndex = 3;
             this.DadosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -128,19 +128,20 @@
             // 
             // btnProcessa
             // 
-            this.btnProcessa.Location = new System.Drawing.Point(447, 362);
+            this.btnProcessa.Location = new System.Drawing.Point(450, 399);
             this.btnProcessa.Name = "btnProcessa";
             this.btnProcessa.Size = new System.Drawing.Size(101, 45);
             this.btnProcessa.TabIndex = 9;
             this.btnProcessa.Text = "Processar";
             this.btnProcessa.UseVisualStyleBackColor = true;
+            this.btnProcessa.Click += new System.EventHandler(this.btnProcessa_Click);
             // 
             // ResultadoCalculolistView
             // 
             this.ResultadoCalculolistView.HideSelection = false;
             this.ResultadoCalculolistView.Location = new System.Drawing.Point(571, 66);
             this.ResultadoCalculolistView.Name = "ResultadoCalculolistView";
-            this.ResultadoCalculolistView.Size = new System.Drawing.Size(121, 232);
+            this.ResultadoCalculolistView.Size = new System.Drawing.Size(121, 311);
             this.ResultadoCalculolistView.TabIndex = 10;
             this.ResultadoCalculolistView.UseCompatibleStateImageBehavior = false;
             // 
@@ -164,20 +165,20 @@
             this.PesosGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PesosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PesosGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.PesosGridView.Location = new System.Drawing.Point(18, 208);
+            this.PesosGridView.Location = new System.Drawing.Point(18, 263);
             this.PesosGridView.MultiSelect = false;
             this.PesosGridView.Name = "PesosGridView";
             this.PesosGridView.ReadOnly = true;
             dataGridViewCellStyle4.NullValue = null;
             this.PesosGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.PesosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PesosGridView.Size = new System.Drawing.Size(530, 93);
+            this.PesosGridView.Size = new System.Drawing.Size(530, 114);
             this.PesosGridView.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 192);
+            this.label4.Location = new System.Drawing.Point(15, 247);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(136, 13);
             this.label4.TabIndex = 13;

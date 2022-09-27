@@ -10,26 +10,62 @@ namespace RedeNeuralPerceptronDomain.Services
 {
     public class AprendizagemServices: IAprendizagemServices
     {
-        public int Somatorio(DataTable dadosGridPrincipal, DataTable dadosGridPesos, int taxaAprendizagem,int linha)
+        private readonly IProcessarPesosServices _processarPesosServices;
+        public AprendizagemServices(IProcessarPesosServices processarPesosServices)
         {
-            long valor = 0;
-            for (int i = 0; i < dadosGridPrincipal.Columns.Count - 3; i++)
+            _processarPesosServices = processarPesosServices;   
+        }
+        public DataTable Somatorio(DataTable dadosGridPrincipal, DataTable dadosGridPesos, double taxaAprendizagem)
+        {
+            var j = 0;
+            DataTable dataTableResultante = new DataTable();
+            foreach (DataRow dadosLinha in dadosGridPrincipal.Rows)
             {
-                DataTable novoPeso = new DataTable();
-                valor = Convert.ToInt64(dadosGridPesos.Rows[i][i]) * Convert.ToInt64(dadosGridPrincipal.Rows[i][i]);
-                valor = +valor;
+                
+                double somatorio = 0;
+                if (j == 0)
+                {
+                    DataRow dadosGridPesoLinha = dadosGridPesos.Rows[j];
+                    for (int i = 0; i < dadosGridPesos.Rows[j].Table.Columns.Count; i++)
+                    {
+                        var calculo = Convert.ToDouble(dadosLinha[i].ToString()) * Convert.ToDouble(dadosGridPesoLinha[i].ToString());
+                        somatorio = somatorio + calculo;
+                    }
+                    dadosLinha["∑"] = somatorio;
+                    dadosLinha["Result"] = FuncaoAtivao(somatorio);
+                    dadosLinha["Saida-Result"] = Convert.ToDouble(dadosLinha["Saida"].ToString()) - Convert.ToDouble(dadosLinha["Result"].ToString());
+                    dataTableResultante.ImportRow(dadosLinha);
+
+                    j++;
+                }
+                else
+                {
+                    dadosGridPesos.ImportRow(_processarPesosServices.GerarPesos(
+                        dadosGridPrincipal.Rows[j-1],
+                        dadosGridPesos.Rows[j-1], taxaAprendizagem));
+                    DataRow dadosGridPesoLinha = dadosGridPesos.Rows[j];
+
+                    j++;
+                }
+
+               
             }
-            var valorComBias = valor+ taxaAprendizagem;
-            if (valorComBias >= 0)
+            return dataTableResultante;
+
+
+        }
+
+        public long FuncaoAtivao(double Somatoria)
+        {
+
+            if (Somatoria>0)
             {
                 return 1;
             }
-            else
-            {
-                return -1;
-            }  
+            
+            return -1;
+            
         }
-
 
     }
 }

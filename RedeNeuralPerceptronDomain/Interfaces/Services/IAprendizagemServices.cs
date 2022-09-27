@@ -9,6 +9,8 @@ namespace RedeNeuralPerceptronDomain.Interfaces.Services
 {
     public interface IAprendizagemServices
     {
-        int Somatorio(DataTable dadosGridPrincipal, DataTable dadosGridPesos, int taxaAprendizagem, int linha);
+        DataTable Somatorio(DataTable dadosGridPrincipal, DataTable dadosGridPesos, double taxaAprendizagem);
+
+        Int64 FuncaoAtivao(double Somatoria);
     }
 }
