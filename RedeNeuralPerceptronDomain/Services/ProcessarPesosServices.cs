@@ -1,12 +1,7 @@
-﻿using Microsoft.VisualBasic.Logging;
-using RedeNeuralPerceptronDomain.Entity;
-using RedeNeuralPerceptronDomain.Interfaces.Services;
+﻿using RedeNeuralPerceptronDomain.Interfaces.Services;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RedeNeuralPerceptronDomain.Services
 {
