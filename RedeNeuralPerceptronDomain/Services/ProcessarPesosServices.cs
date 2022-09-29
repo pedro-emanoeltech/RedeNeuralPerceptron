@@ -1,4 +1,6 @@
-﻿using RedeNeuralPerceptronDomain.Interfaces.Services;
+﻿using Microsoft.VisualBasic.Logging;
+using RedeNeuralPerceptronDomain.Entity;
+using RedeNeuralPerceptronDomain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,8 +28,7 @@ namespace RedeNeuralPerceptronDomain.Services
                     linhaPesos[i] = Convert.ToDouble(linhapesosAntiga[i].ToString()) + (taxaAprendizagem
                     * ((Convert.ToDouble(LinhadadosGridPrincipal["Saida - Result"].ToString()))
                     * (Convert.ToDouble(LinhadadosGridPrincipal[i].ToString()))));
-                    //linhaPesos[i] = dados;
-
+                    
                 }
                 var dado = linhaPesos;
                 dadosGridPesos.Rows.Add(linhaPesos);
@@ -47,7 +48,8 @@ namespace RedeNeuralPerceptronDomain.Services
                 {
                     dataTablePesos.Columns.Add("Peso(" + i+')', typeof(double));
 
-                    linha["Peso(" + i + ')'] = 0;
+                    linha["Peso(" + i + ')'] = numeroAleatorio.Next(100);
+                    
                 }
                 
                 dataTablePesos.Rows.Add(linha);

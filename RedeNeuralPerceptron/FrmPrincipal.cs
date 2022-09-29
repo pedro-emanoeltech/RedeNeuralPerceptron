@@ -1,6 +1,9 @@
-﻿using RedeNeuralPerceptronDomain.Interfaces.Services;
+﻿using RedeNeuralPerceptronDomain.Entity;
+using RedeNeuralPerceptronDomain.Interfaces.Services;
 using RedeNeuralPerceptronDomain.Services;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -15,6 +18,7 @@ namespace RedeNeuralPerceptron
 
         private DataTable _dadosEntrada =new DataTable();
         private DataTable _dadosPesos = new DataTable();
+        public string log;
         public FrmPrincipal(IProcessarArquivoServices processarArquivoServices, IProcessarPesosServices processarPesosServices, IAprendizagemServices aprendizagemServices)
         {
             _processarArquivoServices = processarArquivoServices;
@@ -58,13 +62,30 @@ namespace RedeNeuralPerceptron
 
         private void btnProcessa_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (BiasTextBox.Text.Length > 0)
                 {
                     if (_dadosPesos.Rows.Count > 0 && _dadosEntrada.Rows.Count > 0)
                     {
-                        _aprendizagemServices.Somatorio(_dadosEntrada, _dadosPesos, Convert.ToDouble(BiasTextBox.Text.ToString()));
+                        bool PesoValido = false;
+                        do
+                        {
+                            _aprendizagemServices.Somatorio(_dadosEntrada, _dadosPesos, Convert.ToDouble(BiasTextBox.Text.ToString()));
+                            PesoValido = true;
+                            foreach (DataRow linha in _dadosEntrada.Rows)
+                            {
+                              
+                                if (linha["Result"].ToString() != linha["Saida"].ToString())
+                                {
+                                    PesoValido = false;
+                                }
+                            }
+
+
+                        } while (!PesoValido);
+                        
+                      
                     }
                     else
                     {
@@ -77,12 +98,12 @@ namespace RedeNeuralPerceptron
                     MessageBox.Show("Preencha o Bias para Começar o Processo !");
 
                 }
-            //}
-            //catch (Exception )
-            //{
-            //    throw new Exception("erro ao processar");
-            //}
-            
+            }
+            catch (Exception)
+            {
+                throw new Exception("erro ao processar");
+            }
+
         }
     }
 }
