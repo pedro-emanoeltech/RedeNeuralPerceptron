@@ -10,25 +10,30 @@ namespace RedeNeuralPerceptronDomain.Services
 {
     public class ProcessarPesosServices : IProcessarPesosServices
     {
-        public DataRow GerarPesos(DataRow LinhadadosGridPrincipal, DataRow linhadadosGridPesos,double taxaAprendizagem)
+        public void GerarPesos(DataRow LinhadadosGridPrincipal, DataTable dadosGridPesos ,double taxaAprendizagem)
         {
             //formula Wi(peso novo)=Wi(peso Antigo)+n(taxa de aprendizagem)*(Saida - resultado)*Xi(entrada antigo)
-            DataTable dataTable = new DataTable();
-            DataRow novoPeso = dataTable.NewRow();
-            if (LinhadadosGridPrincipal.Table.Rows.Count > 0 && linhadadosGridPesos.Table.Rows.Count > 0)
+            DataRow linhaPesos = dadosGridPesos.NewRow();
+            DataRow linhapesosAntiga = dadosGridPesos.Rows[dadosGridPesos.Rows.Count-1];
+            if (LinhadadosGridPrincipal.Table.Rows.Count > 0 && dadosGridPesos.Rows.Count > 0)
             {
-                for (int i = 0; i < linhadadosGridPesos.Table.Columns.Count; i++)
+                for (int i = 0; i < dadosGridPesos.Columns.Count; i++)
                 {
-                    dataTable.Columns.Add("Peso(" + i + ')', typeof(Int64));
-                    novoPeso[i] = Convert.ToDouble(linhadadosGridPesos[i].ToString()) + (taxaAprendizagem
-                    *((Convert.ToDouble(LinhadadosGridPrincipal["Saida - Result"].ToString()))
+                   var v = Convert.ToDouble(LinhadadosGridPrincipal["Saida - Result"]);
+                   var t = Convert.ToDouble(LinhadadosGridPrincipal[i]);
+                    var j = linhaPesos[i];
+                    //dataTable.Columns.Add("Peso(" + i + ')', typeof(double));
+                    linhaPesos[i] = Convert.ToDouble(linhapesosAntiga[i].ToString()) + (taxaAprendizagem
+                    * ((Convert.ToDouble(LinhadadosGridPrincipal["Saida - Result"].ToString()))
                     * (Convert.ToDouble(LinhadadosGridPrincipal[i].ToString()))));
-                   
+                    //linhaPesos[i] = dados;
+
                 }
-               
+                var dado = linhaPesos;
+                dadosGridPesos.Rows.Add(linhaPesos);
             }
                    
-           return novoPeso;
+          
         }
 
         public DataTable GerarGridValoresPesosInicias(DataTable dadosGridPrincipal)
@@ -40,9 +45,9 @@ namespace RedeNeuralPerceptronDomain.Services
                 DataRow linha = dataTablePesos.NewRow();
                 for (int i = 0; i < dadosGridPrincipal.Columns.Count-4; i++)
                 {
-                    dataTablePesos.Columns.Add("Peso(" + i+')', typeof(Int64));
-                   
-                    linha["Peso(" + i+')'] = numeroAleatorio.NextDouble();
+                    dataTablePesos.Columns.Add("Peso(" + i+')', typeof(double));
+
+                    linha["Peso(" + i + ')'] = 0;
                 }
                 
                 dataTablePesos.Rows.Add(linha);

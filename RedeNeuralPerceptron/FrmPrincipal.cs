@@ -32,6 +32,7 @@ namespace RedeNeuralPerceptron
 
         private void btnBuscarArquivo_Click(object sender, EventArgs e)
         {
+            BiasTextBox.Enabled = false;
 
             var arquivoDados = _processarArquivoServices.BuscarArquivo();
             if (!String.IsNullOrEmpty(arquivoDados.Caminho))
@@ -46,7 +47,7 @@ namespace RedeNeuralPerceptron
                 
             }
 
-
+            BiasTextBox.Enabled = true;
 
         }
 

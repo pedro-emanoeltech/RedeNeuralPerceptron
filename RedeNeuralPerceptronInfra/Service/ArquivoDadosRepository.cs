@@ -29,9 +29,9 @@ namespace RedeNeuralPerceptronInfras.Service
 
                 DataTable tabelaDados = new DataTable();
                 dataAdapter.Fill(tabelaDados);
-                tabelaDados.Columns.Add("∑", typeof(Int64));
-                tabelaDados.Columns.Add("Result", typeof(Int64));
-                tabelaDados.Columns.Add("Saida - Result", typeof(Int64));
+                tabelaDados.Columns.Add("∑", typeof(double));
+                tabelaDados.Columns.Add("Result", typeof(double));
+                tabelaDados.Columns.Add("Saida - Result", typeof(double));
                
                 return tabelaDados;
 

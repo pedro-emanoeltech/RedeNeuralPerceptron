@@ -31,28 +31,39 @@ namespace RedeNeuralPerceptronDomain.Services
                         var calculo = Convert.ToDouble(dadosLinha[i].ToString()) * Convert.ToDouble(PesosTemporarios[i].ToString());
                         somatorio = somatorio + calculo;
                     }
+                    dadosLinha.BeginEdit();
                     dadosLinha["∑"] = somatorio;
                     dadosLinha["Result"] = FuncaoAtivao(somatorio);
                     dadosLinha["Saida - Result"] = Convert.ToDouble(dadosLinha["Saida"].ToString()) - Convert.ToDouble(dadosLinha["Result"].ToString());
+                    dadosLinha.EndEdit();
                     dataTableResultante.ImportRow(dadosLinha);
 
                     
                 }
                 else
                 {
-                    //DataRow dadosGridPesoLinha = dadosGridPesos.Rows[j];
-
-                    //j++;
+                    for (int i = 0; i < dadosGridPesos.Rows[j].Table.Columns.Count; i++)
+                    {
+                        var calculo = Convert.ToDouble(dadosLinha[i].ToString()) * Convert.ToDouble(PesosTemporarios[i].ToString());
+                        somatorio = somatorio + calculo;
+                    }
+                    dadosLinha.BeginEdit();
+                    dadosLinha["∑"] = somatorio;
+                    dadosLinha["Result"] = FuncaoAtivao(somatorio);
+                    dadosLinha["Saida - Result"] = Convert.ToDouble(dadosLinha["Saida"].ToString()) - Convert.ToDouble(dadosLinha["Result"].ToString());
+                    dadosLinha.EndEdit();
+                    dataTableResultante.ImportRow(dadosLinha);
                 }
 
 
-                
-        
-                DataRow toInsert = dadosGridPesos.NewRow();
-                toInsert =  _processarPesosServices.GerarPesos(
-                                        dadosGridPrincipal.Rows[j],
-                                        dadosGridPesos.Rows[j], taxaAprendizagem);
-                dadosGridPesos.Rows.Add(toInsert);
+                if (!(dadosGridPrincipal.Rows.Count == dadosGridPesos.Rows.Count))
+                {
+                    _processarPesosServices.GerarPesos(
+                        dadosGridPrincipal.Rows[j],
+                        dadosGridPesos, taxaAprendizagem);
+                }
+                 
+                //dadosGridPesos.ImportRow(toInsert);
 
                 j++;
             }
